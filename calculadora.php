@@ -1,50 +1,61 @@
 <?php 
-	echo ("---CALCULADORA--- <br> selecione uma opção abaixo e efetue a operação <br> 1-Somar <br> 2-subtrair <br> 3-multiplicar <br> 4-dividir ");
-	$valor1 = 10;
-	$valor2 = 20;
 
-	$operador = "1";
+// calculadora
+	echo("============================CALCULADORA===================================== <br/> 1-Soma <br/> 2-Subtração <br/> 3-Divisão </br> 4-Multiplicação");
 
-	// funções
-	function somar($num1, $num2){
-		return($num1 + $num2);
+	$escolha = 2;
+	$num1 = 40;
+	$num2 = 10;
+	$resp = 0;
+	function somaValor($a,$b){
+		return($a + $b);
+	};
+		function subtracaoValor($a, $b){
+		return($a - $b);
+
+	};
+
+	function divisaoValor($a, $b){
+	return($a / $b);
+
+
+	};
+
+	function multiplicacaoValor($a, $b){
+		return($a * $b);
+
+
+	};
+
+
+	if($escolha == 1) {
+	$resp =	somaValor($num1, $num2);
+		$var = "soma";
+
 	}
-	function subtrair($num1, $num2){
-		return($num1 - $num2);
+	elseif ($escolha == 2) {
+	$resp = subtracaoValor($num1, $num2);
+			$var = "subtração";
+
 	}
-	function multiplicar($num1, $num2){
-		return($num1 * $num2);
+	elseif ($escolha == 3) {
+	$resp =	divisaoValor($num1, $num2);
+			$var = "divisão";
+
 	}
-	function dividir($num1, $num2){
-		return($num1 / $num2);
-	}
+	elseif ($escolha == 4) {
+	$resp =	multiplicacaoValor($num1, $num2);
+			$var = "multiplicação";
 
-	function imprimir(){
-		echo ("Os números digitados foram: $valor1 e $valor2 <br>Operador escolhido: $operador <br>A conta foi: $valor1 $operador $valor2 = $resposta <br>");
-	}
+	};
 
-	if($operador == "1"){
-			$resposta = somar($valor1, $valor2);
-		}
-		else if($operador == "2"){
-			$operador = "-";
-			$resposta = subtrair($valor1, $valor2);
-		}
-		else if($operador == "3"){
-			$operador = "*";
-			$resposta = multiplicar($valor1, $valor2);
-		}
-		else if($operador == "4"){
-			$operador = "/";
-			$resposta = dividir($valor1, $valor2);
-		}
-		else {
-			echo("Inválido.");
-		}
-	imprimir();
+		function resultado($num1, $num2, $var, $resp){
+	echo "<br/><br/>Os numeros digitados foram $num1 e $num2";
+	echo "<br/>O calculo escolhido foi a $var";
+	echo "<br/>A resposta da soma é: $resp";
 
-	
- ?>
+	};
+	resultado($num1, $num2, $var, $resp);
 
 
-
+ ?>	
